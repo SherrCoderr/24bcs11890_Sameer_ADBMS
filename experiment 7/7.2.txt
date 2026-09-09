@@ -1,0 +1,14 @@
+Write a PL/SQL cursor loop to process the Orders table row-by-row and print "High Value" for every order where the Amount exceeds 10,000.  
+
+DECLARE
+    CURSOR order_cursor IS
+        SELECT Order_ID, Amount
+        FROM Orders;
+BEGIN
+    FOR order_rec IN order_cursor LOOP
+        IF order_rec.Amount > 10000 THEN
+            DBMS_OUTPUT.PUT_LINE('High Value');
+        END IF;
+    END LOOP;
+END;
+/
